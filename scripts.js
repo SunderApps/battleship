@@ -291,12 +291,12 @@ function nextTurn()
   // If it is Player 1's turn
   if(turn === 1)
   {
-    window.alert(pName[0] + '\'s Turn!');
+    window.alert(pName[0] + '\'s Turn! Give the device to ' + pName[0] + ' before clicking OK.');
   }
   // If it is Player 2's turn
   else
   {
-    window.alert(pName[1] + '\'s Turn!');
+    window.alert(pName[1] + '\'s Turn! Give the device to ' + pName[1] + ' before clicking OK.');
   }
 
   // Draw the field
