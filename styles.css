@@ -1,0 +1,140 @@
+/***********************************************************************\
+** File:        styles.css                                              *
+**                                                                      *
+** Author:      Samuel Underwood                                        *
+**                                                                      *
+** Email:       stu17@pitt.edu                                          *
+\***********************************************************************/
+
+/***********************************************************************\
+** Variable-Formatted Styles                                            *
+\***********************************************************************/
+
+/* Normal Layout with Sidebar on the Left */
+@media (min-width: 1250px)
+{
+  .sidebarTitle
+  {
+    position:         fixed;
+    width:            300px;
+    border:           3px solid black;
+    text-align:       center;
+    top:              131px;
+    left:             10px;
+  }
+  .sidebarBody
+  {
+    position:         fixed;
+    width:            300px;
+    border:           3px solid black;
+    text-align:       left;
+    top:              215px;
+    left:             10px;
+  }
+}
+
+/* Layout for when the Sidebar begins to overlap with the Game Board */
+@media (max-width: 1249px)
+{
+  .sidebarTitle
+  {
+    position:         relative;
+    width:            300px;
+    border:           3px solid black;
+    text-align:       center;
+    align:            center;
+    margin-left:      auto;
+    margin-right:     auto;
+  }
+  .sidebarBody
+  {
+    position:         relative;
+    width:            300px;
+    border:           3px solid black;
+    text-align:       left;
+    align:            center;
+    margin-left:      auto;
+    margin-right:     auto;
+    top:              -2px;
+  }
+}
+
+/***********************************************************************\
+** Constant Styles                                                      *
+\***********************************************************************/
+
+.sidebarPlay
+{
+  position:         relative;
+  width:            100%;
+  border:           3px solid black;
+  text-align:       center;
+  background-color: #00FF00;
+  cursor: pointer;
+  display: none;
+}
+
+h1.sidebarContent
+{
+  position:           relative;
+}
+
+h1.title, h2.title
+{
+  text-align:         center;
+}
+
+table.grid, th.field, td.field
+{
+  border:             3px solid black;
+  border-collapse:    collapse;
+  align:              center;
+  margin-left:        auto;
+  margin-right:       auto;
+  text-align:         center;
+}
+
+th.field
+{
+  width:              50px;
+  height:             50px;
+  background-color:   #999999;
+}
+
+td.field
+{
+  width:              50px;
+  height:             50px;
+  background-color:   #0099FF;
+}
+
+table.leaderboard
+{
+  border:             1px solid black;
+  border-top-width:   0px;
+  border-collapse:    collapse;
+  align:              left;
+  text-align:         center;
+}
+
+td.leaderboard
+{
+  border:             1px solid black;
+  position:           relative;
+  border-collapse:    collapse;
+}
+
+td.leaderboard:nth-child(2)
+{
+  width:              100%;
+  overflow:           hidden;
+}
+
+div.help
+{
+  align:              center;
+  margin-left:        auto;
+  margin-right:       auto;
+  width:              550;
+  text-align:         center;
+}

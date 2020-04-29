@@ -1,0 +1,402 @@
+<!--------------------------------------------------------------------------->
+<!-- File:        battleship.html                                          -->
+<!--                                                                       -->
+<!-- Author:      Samuel Underwood                                         -->
+<!--                                                                       -->
+<!-- Email:       stu17@pitt.edu                                           -->
+<!--------------------------------------------------------------------------->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Character Set -->
+  <meta charset="utf-8"/>
+
+  <!-- Site Title -->
+  <title>Battleship!</title>
+
+  <!-- Site Styles -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <!-- Logic of the Web App -->
+  <script type = "text/javascript" src = "scripts.js"></script>
+
+  <!-- The coordinate grid of the current opponent's playing field -->
+  <h1 id="title1" class="title">Target Grid</h1>
+  <h2 id="subtitle1" class="title">Select a coordinate to fire on!</h2>
+  <table name="targetTable" id="targetTable" class="grid">
+    <tr>
+      <th class="field"></th>
+      <th class="field">A</th>
+      <th class="field">B</th>
+      <th class="field">C</th>
+      <th class="field">D</th>
+      <th class="field">E</th>
+      <th class="field">F</th>
+      <th class="field">G</th>
+      <th class="field">H</th>
+      <th class="field">I</th>
+      <th class="field">J</th>
+    </tr>
+    <tr>
+      <th class="field">1</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">2</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">3</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">4</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">5</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">6</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">7</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">8</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">9</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">10</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+  </table>
+
+  <!-- The coordinate grid of the current player's playing field -->
+  <h1 id="title2" class="title">Your Grid</h1>
+  <table name="playerTable" id="playerTable" class="grid">
+    <tr>
+      <th class="field"></th>
+      <th class="field">A</th>
+      <th class="field">B</th>
+      <th class="field">C</th>
+      <th class="field">D</th>
+      <th class="field">E</th>
+      <th class="field">F</th>
+      <th class="field">G</th>
+      <th class="field">H</th>
+      <th class="field">I</th>
+      <th class="field">J</th>
+    </tr>
+    <tr>
+      <th class="field">1</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">2</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">3</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">4</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">5</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">6</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">7</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">8</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">9</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+    <tr>
+      <th class="field">10</th>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+      <td class="field"></td>
+    </tr>
+  </table>
+
+  <!-- Help Information -->
+  <div id="help" name="help" class="help">
+    <h2 class="help">Help</h2>
+    <h4 class="help">A stands for Aircraft Carrier (size 5)</h4>
+    <h4 class="help">B stands for Battleship (size 4)</h4>
+    <h4 class="help">S stands for Submarine (size 3)</h4>
+  </br>
+    <h4 class="help">Blue blocks denote coordinates with an unknown state;</h4>
+    <h4 class="help">Green blocks denote coordinates in which one of your ships is located and unattacked;</h4>
+    <h4 class="help">Red blocks denote coordinates in which you have struck an enemy ship;</h4>
+    <h4 class="help">White blocks denote coordinates in which you have hit water.</h4>
+  </div>
+
+  <!-- Displays leaderboard -->
+  <div id="sidebarTitle" name="sidebarTitle" class="sidebarTitle">
+    <h1 class="sidebarContent">Leaderboard</h1>
+  </div>
+  <!-- Actual Leaderboard -->
+  <div id="sidebarBody" name="sidebarBody" class="sidebarBody">
+    <table id="leaderboard" name="leaderboard" class="leaderboard">
+      <tr class="leaderboard">
+        <td class="leaderboard">&nbsp&nbsp1:</td>
+        <td class="leaderboard"></td>
+        <td class="leaderboard">00</td>
+      </tr>
+      <tr class="leaderboard">
+        <td class="leaderboard">&nbsp&nbsp2:</td>
+        <td class="leaderboard"></td>
+        <td class="leaderboard">00</td>
+      </tr>
+      <tr class="leaderboard">
+        <td class="leaderboard">&nbsp&nbsp3:</td>
+        <td class="leaderboard"></td>
+        <td class="leaderboard">00</td>
+      </tr>
+      <tr class="leaderboard">
+        <td class="leaderboard">&nbsp&nbsp4:</td>
+        <td class="leaderboard"></td>
+        <td class="leaderboard">00</td>
+      </tr>
+      <tr class="leaderboard">
+        <td class="leaderboard">&nbsp&nbsp5:</td>
+        <td class="leaderboard"></td>
+        <td class="leaderboard">00</td>
+      </tr>
+      <tr class="leaderboard">
+        <td class="leaderboard">&nbsp&nbsp6:</td>
+        <td class="leaderboard"></td>
+        <td class="leaderboard">00</td>
+      </tr>
+      <tr class="leaderboard">
+        <td class="leaderboard">&nbsp&nbsp7:</td>
+        <td class="leaderboard"></td>
+        <td class="leaderboard">00</td>
+      </tr>
+      <tr class="leaderboard">
+        <td class="leaderboard">&nbsp&nbsp8:</td>
+        <td class="leaderboard"></td>
+        <td class="leaderboard">00</td>
+      </tr>
+      <tr class="leaderboard">
+        <td class="leaderboard">&nbsp&nbsp9:</td>
+        <td class="leaderboard"></td>
+        <td class="leaderboard">00</td>
+      </tr>
+      <tr class="leaderboard">
+        <td class="leaderboard">&nbsp&nbsp10:</td>
+        <td class="leaderboard"></td>
+        <td class="leaderboard">00</td>
+      </tr>
+    </table>
+    <!-- Allows the users to play again -->
+    <div id="playAgain" name="playAgain" class="sidebarPlay">
+      <h1>Play Again?</h1>
+    </div>
+  </div>
+</body>
+
+</html>
